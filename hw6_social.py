@@ -263,7 +263,16 @@ Parameters: dataframe
 Returns: dict mapping strs to ints
 '''
 def getHashtagRates(data):
-    return
+    hashDict = {}
+    for index,row in data.iterrows():
+        if(row['hashtags']!=[]):
+            for i in row['hashtags']:
+                if i not in hashDict:
+                    hashDict[i]=1
+                else:
+                    hashDict[i]=hashDict[i]+1        
+    return hashDict
+
 
 
 '''
@@ -397,10 +406,11 @@ if __name__ == "__main__":
     addSentimentColumn(df)
 
     ## Uncomment these for Week 2 ##
-    print("\n" + "#"*15 + " WEEK 2 TESTS " +  "#" * 16 + "\n")
-    test.week2Tests()
-    print("\n" + "#"*15 + " WEEK 2 OUTPUT " + "#" * 15 + "\n")
-    test.runWeek2()
+    # print("\n" + "#"*15 + " WEEK 2 TESTS " +  "#" * 16 + "\n")
+    # test.week2Tests()
+    test.testGetHashtagSentiment(df)
+    # print("\n" + "#"*15 + " WEEK 2 OUTPUT " + "#" * 15 + "\n")
+    # test.runWeek2()
 
     ## Uncomment these for Week 3 ##
     """print("\n" + "#"*15 + " WEEK 3 OUTPUT " + "#" * 15 + "\n")
