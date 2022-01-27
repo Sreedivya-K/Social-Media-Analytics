@@ -57,7 +57,16 @@ Parameters: str
 Returns: str
 '''
 def parsePosition(fromString):
-    return
+    start = fromString.find("(") + \
+    len("(")
+    fromString = fromString[start:]
+    end = fromString.find(" from")
+    fromString = fromString[:end]
+    fromString = fromString.strip()
+       
+   
+    return fromString
+    
 
 
 '''
