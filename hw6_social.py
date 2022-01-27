@@ -97,7 +97,25 @@ Parameters: str
 Returns: list of strs
 '''
 def findHashtags(message):
-    return
+    hashtags=[]
+    hashtag="#"
+    list2=[]
+    list=message.split("#")
+    for i in range(1,len(list)):
+        list2.append(list[i])
+    for word in list2:
+        for char in word:
+            if char in endChars:
+                break
+            else:
+                hashtag+=char      
+        hashtags.append(hashtag)
+        hashtag="#"
+    return hashtags
+ 
+ 
+
+   
 
 
 '''
