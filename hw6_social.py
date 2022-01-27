@@ -213,7 +213,27 @@ Parameters: dataframe ; str ; str
 Returns: dict mapping strs to ints
 '''
 def getDataCountByState(data, colName, dataToCount):
-    return
+    stateDict={}
+    if(colName=="" and dataToCount==""):
+         for  index, row in data.iterrows():
+            if row['state'] in stateDict:
+                    stateDict[row['state']]=stateDict[row['state']]+1
+            else:
+                    stateDict[row['state']]=1
+    else:
+        for  index, row in data.iterrows():
+            if row[colName]==dataToCount:
+                if row['state'] in stateDict:
+                    stateDict[row['state']]=stateDict[row['state']]+1
+                else:
+                    stateDict[row['state']]=1
+ 
+    
+ 
+    return stateDict
+
+
+   
 
 
 '''
