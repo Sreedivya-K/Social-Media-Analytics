@@ -36,7 +36,18 @@ Parameters: str
 Returns: str
 '''
 def parseName(fromString):
-    return
+    start = fromString.find("From") + \
+    len("From: ")
+    fromString = fromString[start:]
+    end = fromString.find(" (")
+    fromString = fromString[:end]
+    fromString = fromString.strip()
+       
+    #print(fromString)
+    return fromString
+   
+
+   
 
 
 '''
