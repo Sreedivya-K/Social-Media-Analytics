@@ -76,7 +76,18 @@ Parameters: str
 Returns: str
 '''
 def parseState(fromString):
-    return
+    start = fromString.find("from") + \
+    len("from")
+    fromString = fromString[start:]
+    end = fromString.find(")")
+    fromString = fromString[:end]
+    fromString = fromString.strip()
+       
+   
+    return fromString
+   
+
+    
 
 
 '''
