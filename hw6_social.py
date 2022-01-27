@@ -282,8 +282,10 @@ Parameters: dict mapping strs to ints ; int
 Returns: dict mapping strs to ints
 '''
 def mostCommonHashtags(hashtags, count):
-    return
-
+    import operator
+    commonHashtags = dict(sorted(hashtags.items(), key=operator.itemgetter(1), reverse=True)[:count])  
+    return commonHashtags
+   
 
 '''
 getHashtagSentiment(data, hashtag)
@@ -408,7 +410,10 @@ if __name__ == "__main__":
     ## Uncomment these for Week 2 ##
     # print("\n" + "#"*15 + " WEEK 2 TESTS " +  "#" * 16 + "\n")
     # test.week2Tests()
-    test.testGetHashtagSentiment(df)
+    # test.testGetHashtagSentiment(df)
+    test.testGetHashtagRates(df)
+
+    test.testMostCommonHashtags(df)
     # print("\n" + "#"*15 + " WEEK 2 OUTPUT " + "#" * 15 + "\n")
     # test.runWeek2()
 
