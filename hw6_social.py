@@ -363,7 +363,29 @@ Parameters: dict mapping strs to (dicts mapping strs to ints) ; str
 Returns: None
 '''
 def graphRegionComparison(regionDicts, title):
+    region=list(regionDicts.keys())
+    features=[]
+    for key, value in regionDicts.items():
+        if isinstance(value, dict):
+            temp=value.keys()
+        for feature in temp:
+            if feature in features:
+                continue
+            else: features.append(feature)
+    regionFeature=[]
+    for key, value in regionDicts.items():
+        temp=[]
+        for feature in features:
+            if feature in value.keys():
+                temp.append(value[feature])
+            else:
+                temp.append(0)
+        regionFeature.append(temp)
+
+    sideBySideBarPlots(features, region, regionFeature, title)          
     return
+
+   
 
 
 '''
